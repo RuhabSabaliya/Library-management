@@ -1,0 +1,182 @@
+/* src/styles/App.css */
+/* Basic styling to make the app look clean and readable. */
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: #f4f6f8;
+}
+
+.app-container {
+  max-width: 1100px;
+  margin: 20px auto 40px;
+  padding: 0 16px;
+}
+
+.app-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+/* Card layout used for different sections */
+.card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.card-title {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Form & filters */
+.book-form,
+.filters-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 200px;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+  color: #444;
+}
+
+.form-group input,
+.form-group select {
+  padding: 8px 10px;
+  border-radius: 4px;
+  border: 1px solid #ccd1d7;
+  font-size: 0.95rem;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #1976d2;
+}
+
+.error-text {
+  color: #c62828;
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+/* Buttons */
+.btn {
+  border: none;
+  border-radius: 4px;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.btn-small {
+  padding: 6px 10px;
+  font-size: 0.8rem;
+}
+
+.btn-primary {
+  background-color: #1976d2;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #145ea5;
+}
+
+.btn-secondary {
+  background-color: #616161;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #424242;
+}
+
+.btn-danger {
+  background-color: #e53935;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #c62828;
+}
+
+/* Messages */
+.info-message {
+  margin: 8px 0;
+  color: #1976d2;
+}
+
+.error-message {
+  margin: 8px 0;
+  color: #e53935;
+}
+
+/* Filters */
+.filters-container .filters-row {
+  align-items: flex-end;
+}
+
+/* Summary widget */
+.summary-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.summary-item {
+  flex: 1 1 120px;
+  background-color: #f7f9fc;
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+
+.summary-label {
+  display: block;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.summary-value {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1976d2;
+}
+
+/* Pagination */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12px;
+  gap: 8px;
+}
+
+.pagination-info {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .book-form,
+  .filters-row {
+    flex-direction: column;
+  }
+}

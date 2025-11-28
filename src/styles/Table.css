@@ -1,0 +1,34 @@
+/* src/styles/Table.css */
+/* Specific styles for the books table */
+
+.table-wrapper {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.books-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+  font-size: 0.9rem;
+}
+
+.books-table thead {
+  background-color: #e3f2fd;
+}
+
+.books-table th,
+.books-table td {
+  padding: 8px 10px;
+  border: 1px solid #dee2e6;
+  text-align: left;
+}
+
+.books-table th {
+  font-weight: 600;
+  color: #333;
+}
+
+.books-table tr:nth-child(even) {
+  background-color: #fafafa;
+}
