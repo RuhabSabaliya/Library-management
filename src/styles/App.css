@@ -1,11 +1,19 @@
 /* src/styles/App.css */
-/* Basic styling to make the app look clean and readable. */
+/* Basic styling to make the app look clean and readable and responsive. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background-color: #f4f6f8;
 }
+
+/* Container */
 
 .app-container {
   max-width: 1100px;
@@ -17,9 +25,11 @@ body {
   text-align: center;
   margin-bottom: 20px;
   color: #222;
+  font-size: 2rem;
 }
 
-/* Card layout used for different sections */
+/* Card */
+
 .card {
   background-color: #ffffff;
   border-radius: 8px;
@@ -35,7 +45,8 @@ body {
   color: #333;
 }
 
-/* Form & filters */
+/* Form & Filters */
+
 .book-form,
 .filters-row {
   display: flex;
@@ -47,6 +58,7 @@ body {
   display: flex;
   flex-direction: column;
   flex: 1 1 200px;
+  min-width: 180px;
 }
 
 .form-group label {
@@ -76,6 +88,7 @@ body {
 }
 
 /* Buttons */
+
 .btn {
   border: none;
   border-radius: 4px;
@@ -83,6 +96,7 @@ body {
   font-size: 0.9rem;
   cursor: pointer;
   margin-right: 8px;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
 }
 
 .btn-small {
@@ -117,7 +131,16 @@ body {
   background-color: #c62828;
 }
 
+/* Disabled state */
+
+button:disabled,
+button[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 /* Messages */
+
 .info-message {
   margin: 8px 0;
   color: #1976d2;
@@ -129,11 +152,17 @@ body {
 }
 
 /* Filters */
+
 .filters-container .filters-row {
   align-items: flex-end;
 }
 
 /* Summary widget */
+
+.summary-widget {
+  margin-bottom: 16px;
+}
+
 .summary-grid {
   display: flex;
   flex-wrap: wrap;
@@ -160,12 +189,14 @@ body {
 }
 
 /* Pagination */
+
 .pagination-container {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 12px;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 .pagination-info {
@@ -173,10 +204,105 @@ body {
   color: #444;
 }
 
-/* Responsive adjustments */
+/* ===== RESPONSIVE STYLES ===== */
+
+/* Medium screens (tablets) */
+@media (max-width: 992px) {
+  .app-container {
+    max-width: 100%;
+    margin: 10px auto 30px;
+    padding: 0 12px;
+  }
+
+  .app-title {
+    font-size: 1.7rem;
+  }
+
+  .card {
+    padding: 14px 16px;
+  }
+
+  .card-title {
+    font-size: 1.1rem;
+  }
+}
+
+/* Small screens (phones) */
 @media (max-width: 768px) {
+  .app-container {
+    padding: 0 10px;
+  }
+
+  .app-title {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+  }
+
+  /* Stack form & filters vertically */
   .book-form,
   .filters-row {
     flex-direction: column;
+  }
+
+  .form-group {
+    flex: 1 1 100%;
+    min-width: 100%;
+  }
+
+  /* Make buttons full width when needed */
+  .form-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .form-buttons .btn {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  /* Summary items in 2 columns on small screens */
+  .summary-grid {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .summary-item {
+    flex: 1 1 calc(50% - 10px);
+  }
+
+  .pagination-container {
+    flex-direction: column;
+  }
+}
+
+/* Extra small screens (very small phones) */
+@media (max-width: 480px) {
+  .app-title {
+    font-size: 1.3rem;
+  }
+
+  .card {
+    padding: 10px 12px;
+  }
+
+  .summary-item {
+    flex: 1 1 100%;
+  }
+
+  .btn,
+  .btn-small {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 6px;
+  }
+
+  .pagination-container {
+    gap: 4px;
+  }
+
+  .pagination-info {
+    font-size: 0.8rem;
   }
 }

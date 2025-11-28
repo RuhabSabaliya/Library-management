@@ -1,10 +1,12 @@
 /* src/styles/Table.css */
-/* Specific styles for the books table */
+/* Table styles + responsiveness */
 
 .table-wrapper {
   max-width: 100%;
-  overflow-x: auto;
+  overflow-x: auto; /* horizontal scroll on small screens */
 }
+
+/* Base table styling */
 
 .books-table {
   width: 100%;
@@ -31,4 +33,75 @@
 
 .books-table tr:nth-child(even) {
   background-color: #fafafa;
+}
+
+/* Make action buttons wrap nicely inside a cell */
+.books-table td:last-child {
+  white-space: nowrap;
+}
+
+/* ===== RESPONSIVE TABLE STYLES ===== */
+
+/* On tablets, slightly reduce font and padding */
+@media (max-width: 992px) {
+  .books-table {
+    font-size: 0.85rem;
+  }
+
+  .books-table th,
+  .books-table td {
+    padding: 6px 8px;
+  }
+}
+
+/* On phones, keep horizontal scroll but adjust spacing */
+@media (max-width: 768px) {
+  .table-wrapper {
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+    background-color: #ffffff;
+  }
+
+  .books-table th,
+  .books-table td {
+    padding: 6px;
+  }
+
+  .books-table th:nth-child(5),
+  .books-table td:nth-child(5) {
+    /* Status column */
+    text-align: center;
+  }
+
+  .books-table td:last-child {
+    /* Actions column */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .books-table td:last-child .btn-small {
+    flex: 1 1 80px;
+    text-align: center;
+  }
+}
+
+/* Very small screens: smaller font and tighter rows */
+@media (max-width: 480px) {
+  .books-table {
+    font-size: 0.8rem;
+  }
+
+  .books-table th,
+  .books-table td {
+    padding: 4px 6px;
+  }
+
+  .books-table td:last-child {
+    flex-direction: column;
+  }
+
+  .books-table td:last-child .btn-small {
+    width: 100%;
+  }
 }
