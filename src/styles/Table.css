@@ -1,18 +1,18 @@
-/* src/styles/Table.css */
-/* Table styles + responsiveness */
+/* =============================
+   TABLE (Desktop / Tablet)
+   ============================= */
 
 .table-wrapper {
   max-width: 100%;
-  overflow-x: auto; /* horizontal scroll on small screens */
+  overflow-x: auto;
+  margin-top: 8px;
 }
-
-/* Base table styling */
 
 .books-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 8px;
-  font-size: 0.9rem;
+  font-size: 0.88rem; /* slightly smaller */
+  background-color: white;
 }
 
 .books-table thead {
@@ -26,82 +26,100 @@
   text-align: left;
 }
 
-.books-table th {
-  font-weight: 600;
-  color: #333;
-}
-
 .books-table tr:nth-child(even) {
   background-color: #fafafa;
 }
 
-/* Make action buttons wrap nicely inside a cell */
-.books-table td:last-child {
+.books-table td.actions {
   white-space: nowrap;
 }
 
-/* ===== RESPONSIVE TABLE STYLES ===== */
+/* Buttons inside table */
+.books-table .btn-small {
+  padding: 5px 8px;
+  font-size: 0.75rem;
+  margin-right: 4px;
+}
 
-/* On tablets, slightly reduce font and padding */
-@media (max-width: 992px) {
-  .books-table {
+/* =====================================
+   MOBILE VIEW → Convert table to CARDS
+   ===================================== */
+
+@media (max-width: 768px) {
+  .books-table,
+  .books-table thead,
+  .books-table tbody,
+  .books-table th,
+  .books-table td,
+  .books-table tr {
+    display: block;
+  }
+
+  /* Hide table headers */
+  .books-table thead {
+    display: none;
+  }
+
+  /* Each row becomes a card */
+  .books-table tr {
+    background: white;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.15);
+    padding: 12px;
+  }
+
+  /* Each cell becomes a line with label */
+  .books-table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 4px;
+    border: none;
+    border-bottom: 1px solid #eee;
     font-size: 0.85rem;
   }
 
-  .books-table th,
-  .books-table td {
+  /* Remove last border */
+  .books-table td:last-child {
+    border-bottom: none;
+  }
+
+  /* Add labels before values */
+  .books-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #444;
+    margin-right: 10px;
+    flex: 1;
+  }
+
+  /* Actions row */
+  .books-table td.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .books-table td.actions .btn-small {
+    width: 100%;
+    text-align: center;
+    font-size: 0.8rem;
     padding: 6px 8px;
   }
 }
 
-/* On phones, keep horizontal scroll but adjust spacing */
-@media (max-width: 768px) {
-  .table-wrapper {
-    border-radius: 6px;
-    border: 1px solid #e0e0e0;
-    background-color: #ffffff;
-  }
-
-  .books-table th,
-  .books-table td {
-    padding: 6px;
-  }
-
-  .books-table th:nth-child(5),
-  .books-table td:nth-child(5) {
-    /* Status column */
-    text-align: center;
-  }
-
-  .books-table td:last-child {
-    /* Actions column */
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
-  }
-
-  .books-table td:last-child .btn-small {
-    flex: 1 1 80px;
-    text-align: center;
-  }
-}
-
-/* Very small screens: smaller font and tighter rows */
+/* Very Small Phones */
 @media (max-width: 480px) {
-  .books-table {
-    font-size: 0.8rem;
+  .books-table tr {
+    padding: 10px;
   }
 
-  .books-table th,
   .books-table td {
-    padding: 4px 6px;
+    font-size: 0.78rem;
+    padding: 4px 2px;
   }
 
-  .books-table td:last-child {
-    flex-direction: column;
-  }
-
-  .books-table td:last-child .btn-small {
-    width: 100%;
+  .books-table td::before {
+    font-size: 0.78rem;
   }
 }
